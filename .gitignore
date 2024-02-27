@@ -1,0 +1,13 @@
+# Ignore Node.js build artifacts
+node_modules/
+
+# Ignore logs and other local build artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm/
+*.pnp.js
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
