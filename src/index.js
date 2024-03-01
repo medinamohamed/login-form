@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const hbs = require("hbs")
-const collection = require("mongodb")
+const collection = require("./mongodb")
 
 const templatePath = path.join(__dirname,'../templates')
 const publicPath = path.join(__dirname, '../public')
@@ -29,10 +29,32 @@ app.post("/signup", async (req,res)=> {
         password:req.body.password
     }
 
-await collection.insertMany([data])
+    await collection.insertMany([data])
 
-res.render("home")
+    res.render("home")
 })
+
+app.post("/login", async (req,res)=> {
+   try {
+
+        const check= await collection.findOne({name:req.body.name})
+
+        if(check.password===req.body.password){
+            res.render("home")
+        }
+        else{
+            res.send("The password is incorrect")
+        }
+    }
+
+    catch{
+        res.send("Username does not exist")
+    }
+
+   
+  
+})
+
 
 
 
