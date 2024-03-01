@@ -5,9 +5,14 @@ const hbs = require("hbs")
 const collection = require("mongodb")
 
 const templatePath = path.join(__dirname,'../templates')
+const publicPath = path.join(__dirname, '../public')
+console.log(publicPath);
+
+
 app.use(express.json())
 app.set("view engine","hbs")
 app.set("views", templatePath)
+app.use(express.urlencoded({extended: false}))
 
 
 app.get('/signup', (req, res) => {
@@ -16,6 +21,7 @@ app.get('/signup', (req, res) => {
 app.get('/', (req, res) => {
     res.render('login')
 })
+
 
 app.post("/signup", async (req,res)=> {
     const data= {
@@ -27,6 +33,8 @@ await collection.insertMany([data])
 
 res.render("home")
 })
+
+
 
 
 app.listen(3000, ()=> {
