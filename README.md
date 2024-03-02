@@ -55,5 +55,5 @@ This application has been deployed using Vercel. You can access it [here](#).
 - Vercel (for deployment)
 
 
-You can also just visit the project here : 
+
 
