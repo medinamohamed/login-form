@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require("express");
 const app = express()
 const mongoose = require('mongoose');
@@ -10,7 +11,6 @@ const publicPath = path.join(__dirname, '../public');
 
 const PORT = process.env.PORT || 3000;
 mongoose.set('strictQuery',false);
-
 
 const { collection } = require("./mongodb");
 
@@ -24,10 +24,7 @@ const connectDB = async () => {
     }
   }
 
-
-
 app.use(express.static(publicPath));
-
 
 app.use(express.json())
 app.set("view engine","hbs")
@@ -90,7 +87,7 @@ app.post("/login", async (req, res) => {
                 res.render("home");
             }
             else{
-                res.status(400).json({ success: false, message: "*The password is incorrect" });
+                res.status(400).json({ success: false, message: "The password is incorrect" });
 
             }
         }
@@ -107,11 +104,13 @@ app.post("/login", async (req, res) => {
 
 //Connect to the database before listening
 connectDB().then(() => {
-    app.listen(PORT, () => {
+    app.listen(3000, () => {
+        console.log(`Server is running on port ${PORT}`)
         console.log("listening for requests");
     })
 })
 
+//For local purposes 
 // app.listen(PORT, () => {
 //     console.log("listening for requests");
 // })
