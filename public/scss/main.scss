@@ -1,0 +1,117 @@
+// Import partials
+@import 'partials/variables';
+@import 'partials/home';  
+@import 'partials/login';     
+@import 'partials/signup';      
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$p: #E3DEDA;
+$s: #BFC1CB;
+* { font-family: 'Poppins' }
+@mixin screen {
+	background: $p;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	border-radius: 30px;
+	// box-shadow: 0 0 2em hsl(231deg 62% 94%);
+}
+body {
+	user-select: none;
+	overflow-y: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #393831;
+	height: 100vh;
+}
+.screen-1 {
+    
+	@include screen;
+	gap: 1em;
+	.logo { margin-top: -3em }
+	.email {
+		background: #ffffff;
+        filter: drop-shadow(2px 2px 8 #CBC4BE);
+		// box-shadow: 0 0 2em hsl(58, 100%, 95%);
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		border-radius: 20px;
+		color: hsl(0deg 0% 30%);
+		margin-top: -3em;
+		input {
+			outline: none;
+			border: none;
+			&::placeholder {
+				color: hsl(0, 0%, 70%);
+				font-size: 0.9em;
+			}
+		}
+		ion-icon {
+			color: hsl(0deg 0% 70%);
+			margin-bottom: -.2em;
+		}
+		margin-bottom: 1.5em; 
+	}
+	.password {
+        background: #ffffff;
+        filter: drop-shadow(2px 2px 8 #CBC4BE);
+		background: hsl(0deg 0% 100%);
+		// box-shadow: 0 0 2em hsl(231deg 62% 94%);
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		border-radius: 20px;
+		color: hsl(0deg 0% 30%);
+		input {
+			outline: none;
+			border: none;
+			&::placeholder {
+				color: hsl(0, 0%, 70%);
+				font-size: 0.9em;
+			}
+		}
+		ion-icon {
+			color: hsl(0deg 0% 30%);
+			margin-bottom: -.2em;
+		}
+		.show-hide {
+			margin-right: -5em;
+		}
+		margin-bottom: 1.5em; 
+
+	}
+	.login {
+		
+		padding: 1.5em;
+		width: 100%;
+		background: $s;
+		color: hsl(0 0 100);
+		border: none;
+		border-radius: 30px;
+		font-weight: 600;
+	}
+	.footer {
+		display: flex;
+		font-size: 0.7em;
+		color: hsl(0deg 0% 37%);
+		gap: 14em;
+		padding-bottom: 10em;
+		span { cursor: pointer }
+
+		.sign-up{
+            font-size: 15px;
+            text-align: center;
+			text-decoration: none;
+		}
+        a:visited{
+            color: #9DA1B2;
+        }
+	}
+}
+
+button { cursor: pointer; }

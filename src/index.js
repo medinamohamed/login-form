@@ -6,7 +6,8 @@ const collection = require("./mongodb")
 
 const templatePath = path.join(__dirname,'../templates')
 const publicPath = path.join(__dirname, '../public')
-console.log(publicPath);
+
+app.use(express.static(publicPath));
 
 
 app.use(express.json())

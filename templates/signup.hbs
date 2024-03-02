@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+
 </head>
 <body>
-
-    <h2>Sign Up</h2>
-
+<div class="screen-1">
+         <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewBox="0 0 640 480" xml:space="preserve">
+            <g transform="matrix(3.31 0 0 3.31 320.4 240.4)">
+               <circle style="fill: #BFC1CB; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="40"></circle>
+            </g>
+         </svg>
     <form action="/signup" method="post">
-
-    <input type="text" name="name" placeholder="Name">
-     <input type="password" name="password" placeholder="Password">
-
-     <input type="submit">
-    </form>
-    <a href="/">Go back to login page</a>
-
+            <div class="email">
+               <label for="email">Username</label>
+               <div class="sec-2">
+                  <ion-icon name="mail-outline" role="img" class="md hydrated" aria-label="mail outline"></ion-icon>
+                  <input type="text" name="name" placeholder="Username">
+               </div>
+            </div>
+            <div class="password">
+               <label for="password">Password</label>
+               <div class="sec-2">
+                  <ion-icon name="lock-closed-outline" role="img" class="md hydrated" aria-label="lock closed outline"></ion-icon>
+                  <input type="password" name="password" placeholder="············">
+               </div>
+            </div>
+            <button type="submit" class="login">Sign Up </button>
+         </form>
+         <div class="footer">
+            <a href="/" class="sign-up"> <span >Login Page</span></a>
+         </div>
+      </div>
+      </div>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
