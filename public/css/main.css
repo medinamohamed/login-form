@@ -113,8 +113,16 @@ body {
   font-size: 15px;
   text-decoration: none;
 }
+.screen-1 .footer a {
+  color: #393831;
+}
 .screen-1 .footer a:visited {
   color: #9DA1B2;
+}
+
+.pw-error {
+  color: #C70056;
+  font-size: small;
 }
 
 button {

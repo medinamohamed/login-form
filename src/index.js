@@ -12,7 +12,7 @@ const publicPath = path.join(__dirname, '../public');
 const PORT = process.env.PORT || 3000;
 mongoose.set('strictQuery',false);
 
-const { collection } = require("./mongodb");
+//const { collection } = require("./mongodb");
 
 const connectDB = async () => {
     try {
@@ -23,6 +23,20 @@ const connectDB = async () => {
       process.exit(1);
     }
   }
+
+const LogInSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    }
+})
+
+const collection = new mongoose.model("Collection1", LogInSchema)
+
 
 app.use(express.static(publicPath));
 
@@ -51,7 +65,7 @@ app.post("/signup", async (req, res) => {
         const existingUser = await collection.findOne({ name: req.body.name });
         if (existingUser) {
             // If the username already exists, return an error message
-            return res.status(400).json({ success: false, message: "Username already exists. Please try with a different username." });
+            return res.status(400).json({ success: false, message: "Username already exists." });
         }
 
         // If the username is not found in the database, proceed with signup
@@ -60,8 +74,8 @@ app.post("/signup", async (req, res) => {
             password: req.body.password
         };
      
-        const result = await collection.insertOne(data);
-        console.log(result)
+        const result = await collection.create(data);
+        //console.log(result)
         //console.log("New user inserted:", result.ops[0]);
 
         // After successful signup, redirect the user to the login page
@@ -104,7 +118,7 @@ app.post("/login", async (req, res) => {
 
 //Connect to the database before listening
 connectDB().then(() => {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`)
         console.log("listening for requests");
     })

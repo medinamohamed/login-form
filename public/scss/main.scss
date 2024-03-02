@@ -112,10 +112,18 @@ body {
             font-size: 15px;
 			text-decoration: none;
 		}
+		a {
+			color: #393831;
+		}
         a:visited{
             color: #9DA1B2;
         }
 	}
+}
+
+.pw-error {
+	color: #C70056;
+	font-size: small;
 }
 
 button { cursor: pointer; }
