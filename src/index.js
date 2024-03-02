@@ -1,11 +1,30 @@
-const express = require("express")
+require('dotenv').config();
+const express = require("express");
 const app = express()
-const path = require("path")
-const hbs = require("hbs")
-const { collection } = require("./mongodb")
+const mongoose = require('mongoose');
 
-const templatePath = path.join(__dirname,'../templates')
-const publicPath = path.join(__dirname, '../public')
+const path = require("path");
+
+const templatePath = path.join(__dirname,'../templates');
+const publicPath = path.join(__dirname, '../public');
+
+const PORT = process.env.PORT || 3000;
+mongoose.set('strictQuery',false);
+
+
+const { collection } = require("./mongodb");
+
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGO_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
+
+
 
 app.use(express.static(publicPath));
 
@@ -86,6 +105,13 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.listen(3000, ()=> {
-    console.log("port connected");
+//Connect to the database before listening
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
 })
+
+// app.listen(PORT, () => {
+//     console.log("listening for requests");
+// })

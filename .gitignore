@@ -1,3 +1,4 @@
+.env
 # Ignore Node.js build artifacts
 node_modules/
 
