@@ -32,7 +32,7 @@ mongod
 
 5. Run the application:
 
-npm start
+nodemon src/index.js
 
 
 The application should now be running on `http://localhost:3000`.
@@ -45,14 +45,14 @@ The application should now be running on `http://localhost:3000`.
 
 ## Deployment
 
-This application has been deployed using Vercel. You can access it [here](#).
+This application has been deployed using Vercel. You can access it [here](https://loginsignup.cyclic.app/).
 
 ## Technologies Used
 
 - Express.js
 - MongoDB
 - Handlebars (hbs)
-- Vercel (for deployment)
+- Cyclic (for deployment)
 
 
 
